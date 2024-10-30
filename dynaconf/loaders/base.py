@@ -157,12 +157,7 @@ class BaseLoader:
                     self.identifier, file_name, env
                 )
 
-                try:
-                    data = file_data[env] or {}
-                except KeyError:
-                    if silent:
-                        continue
-                    raise
+                data = file_data.get(env) or {}
 
                 if not data:
                     continue
